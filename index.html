@@ -23,27 +23,23 @@
 
           <div>
             <label for="shift">Décalage :</label>
-            <input type="number" id="shift" min="1" max="25" value="3" />
+            <input type="number" id="shift" value="0" />
           </div>
+        </div>
 
-          <div class="buttons">
-            <button id="encryptBtn">Chiffrer</button>
-            <button id="decryptBtn">Déchiffrer</button>
-          </div>
-
-          <h2>Résultat :</h2>
-          <div id="outputText"></div>
+        <div class="buttons">
+          <button id="encryptBtn">Chiffrer</button>
+          <button id="decryptBtn">Déchiffrer</button>
           <button id="copyBtn">Copier</button>
         </div>
 
-        <div class="wheel">
-          <canvas id="cesarWheel" width="300" height="300"></canvas>
+        <div class="output">
+          <label for="outputText">Texte déchiffré :</label>
+          <div id="outputText"></div>
         </div>
+
+        <canvas id="cesarWheel" width="400" height="400"></canvas>
       </div>
-      <p style="text-align: center; font-size: 28; margin-top: 28px">
-        &copy; Made with &hearts; by Ndiaye Doucouré | Software Developer
-        &smile;
-      </p>
     </div>
 
     <script src="script.js"></script>

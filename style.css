@@ -1,45 +1,32 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 20px;
 }
 
 .container {
-  background: white;
-  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  max-width: 900px;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
 }
 
 .main-content {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
 
-.inputs {
-  flex: 1;
-  padding-right: 20px;
-}
-
-.inputs div {
-  margin-bottom: 15px;
+.inputs,
+.buttons,
+.output {
+  margin-bottom: 20px;
 }
 
 label {
@@ -51,55 +38,25 @@ input[type="text"],
 input[type="number"] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ced4da;
   border-radius: 4px;
-  border: 1px solid #ddd;
 }
 
 button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
+  padding: 10px 20px;
+  margin-right: 10px;
   border: none;
   border-radius: 4px;
-  width: 100%;
+  background-color: #007bff;
+  color: #ffffff;
   cursor: pointer;
-  margin-bottom: 10px;
 }
 
 button:hover {
   background-color: #0056b3;
 }
 
-button:disabled {
-  background-color: #ddd;
-  cursor: not-allowed;
-}
-
-#outputText {
-  background: #f1f1f1;
-  padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  word-wrap: break-word;
-}
-
-#copyBtn {
-  width: auto;
-  display: block;
-  margin: 0 auto;
-  background-color: #28a745;
-}
-
-#copyBtn:hover {
-  background-color: #218838;
-}
-
-.wheel {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
+canvas {
+  border: 1px solid #ced4da;
 }

@@ -23,22 +23,23 @@ function drawWheel(shift = 0) {
   ctx.stroke();
   ctx.closePath();
 
-  // Dessin des lettres
-  for (let i = 0; i < alphabet.length; i++) {
-    // Angle pour chaque lettre
-    const angle = (i * (2 * Math.PI)) / alphabet.length - Math.PI / 2;
-    const xOuter = radius + (radius - 20) * Math.cos(angle);
-    const yOuter = radius + (radius - 20) * Math.sin(angle);
+  // Dessiner les lettres
+  ctx.font = "20px Arial";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  const angleStep = (2 * Math.PI) / alphabet.length;
 
-    const adjustedIndex = (i + shift) % alphabet.length;
-    const xInner = radius + (radius - 60) * Math.cos(angle);
-    const yInner = radius + (radius - 60) * Math.sin(angle);
+  for (let i = 0; i < alphabet.length; i++) {
+    const angle = i * angleStep - Math.PI / 2;
+    const xOuter = radius + (radius - 30) * Math.cos(angle);
+    const yOuter = radius + (radius - 30) * Math.sin(angle);
+    const xInner = radius + (radius - 70) * Math.cos(angle);
+    const yInner = radius + (radius - 70) * Math.sin(angle);
+
+    const adjustedIndex = (i + shift + alphabet.length) % alphabet.length;
 
     // Lettres extérieures
-    ctx.font = "14px Arial";
     ctx.fillStyle = "#007BFF";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
     ctx.fillText(alphabet[i], xOuter, yOuter);
 
     // Lettres intérieures (avec décalage)
@@ -61,12 +62,9 @@ function caesarCipher(text, shift) {
     .join("");
 }
 
-// Initialisation de la roue
-drawWheel();
-
-// Gestion des événements
-document.getElementById("shift").addEventListener("input", (e) => {
-  const shift = parseInt(e.target.value) || 0;
+// Mise à jour de la roue
+document.getElementById("shift").addEventListener("input", (event) => {
+  const shift = parseInt(event.target.value) || 0;
   drawWheel(shift);
 });
 
@@ -74,7 +72,7 @@ document.getElementById("encryptBtn").addEventListener("click", () => {
   const text = document.getElementById("inputText").value;
   const shift = parseInt(document.getElementById("shift").value) || 0;
 
-  // Chiffrement du texte
+  // Chiffrement
   const result = caesarCipher(text, shift);
   document.getElementById("outputText").textContent = result;
 
@@ -101,3 +99,6 @@ document.getElementById("copyBtn").addEventListener("click", () => {
     alert("Texte copié dans le presse-papiers !");
   });
 });
+
+// Dessiner la roue initialement
+drawWheel(0);
